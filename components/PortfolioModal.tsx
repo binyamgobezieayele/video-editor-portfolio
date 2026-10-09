@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import type { Project, PlaylistItem } from '../types';
 import BeforeAfterSlider from './BeforeAfterSlider';
-import { PuzzlePieceIcon, LightBulbIcon, TrophyIcon, TwitterIcon, FacebookIcon, ShareLinkedInIcon } from './icons/IconComponents';
+import { LayersIcon, SparklesIcon, CheckCircleIcon, TwitterIcon, FacebookIcon, LinkedInIcon } from './icons/IconComponents';
 
 interface PortfolioModalProps {
   project: Project;
@@ -94,7 +94,7 @@ const PreviewContent: React.FC<{ item: PlaylistItem }> = ({ item }) => {
                           <FacebookIcon className="w-5 h-5" />
                       </a>
                       <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors" data-cursor-variant="link" aria-label="Share on LinkedIn">
-                          <ShareLinkedInIcon className="w-5 h-5" />
+                          <LinkedInIcon className="w-5 h-5" />
                       </a>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ const CaseStudyContent: React.FC<{ caseStudy: any }> = ({ caseStudy }) => {
         >
             <motion.div variants={sectionVariants}>
                 <h3 className="text-xl font-bold text-text-primary dark:text-white mb-3 flex items-center gap-3">
-                    <motion.span variants={iconVariants} className="bg-accent-start/10 p-2 rounded-md text-accent-start inline-block"><PuzzlePieceIcon /></motion.span>
+                    <motion.span variants={iconVariants} className="bg-accent-start/10 p-2 rounded-md text-accent-start inline-block"><LayersIcon /></motion.span>
                     The Problem
                 </h3>
                 <p className="text-text-secondary dark:text-[#94A3B8] leading-relaxed">{caseStudy.problem}</p>
@@ -137,7 +137,7 @@ const CaseStudyContent: React.FC<{ caseStudy: any }> = ({ caseStudy }) => {
             
             <motion.div variants={sectionVariants}>
                 <h3 className="text-xl font-bold text-text-primary dark:text-white mb-3 flex items-center gap-3">
-                    <motion.span variants={iconVariants} className="bg-accent-start/10 p-2 rounded-md text-accent-start inline-block"><LightBulbIcon /></motion.span>
+                    <motion.span variants={iconVariants} className="bg-accent-start/10 p-2 rounded-md text-accent-start inline-block"><SparklesIcon /></motion.span>
                     The Solution
                 </h3>
                 <p className="text-text-secondary dark:text-[#94A3B8] leading-relaxed">{caseStudy.solution}</p>
@@ -145,7 +145,7 @@ const CaseStudyContent: React.FC<{ caseStudy: any }> = ({ caseStudy }) => {
 
             <motion.div variants={sectionVariants}>
                 <h3 className="text-xl font-bold text-text-primary dark:text-white mb-3 flex items-center gap-3">
-                    <motion.span variants={iconVariants} className="bg-accent-start/10 p-2 rounded-md text-accent-start inline-block"><TrophyIcon /></motion.span>
+                    <motion.span variants={iconVariants} className="bg-accent-start/10 p-2 rounded-md text-accent-start inline-block"><CheckCircleIcon /></motion.span>
                     The Result
                 </h3>
                 <p className="text-text-secondary dark:text-[#94A3B8] leading-relaxed mb-4">{caseStudy.result}</p>

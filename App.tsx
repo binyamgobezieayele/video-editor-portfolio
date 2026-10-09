@@ -12,10 +12,8 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import CustomCursor from './components/CustomCursor';
 import StickyNav from './components/StickyNav';
 import SplashScreen from './components/SplashScreen';
-import BehindTheScenes from './components/BehindTheScenes';
 import GearAndSetup from './components/GearAndSetup';
 import FAQ from './components/FAQ';
-import ReferralBanner from './components/ReferralBanner';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -78,9 +76,7 @@ const App: React.FC = () => {
         <About />
         <Skills />
         <Portfolio />
-        <BehindTheScenes />
         <GearAndSetup />
-        <ReferralBanner />
         <Testimonials />
         <FAQ />
         <Contact />

@@ -1,15 +1,15 @@
 import type { Skill } from '../types';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AnimationIcon, VideoEditingIcon, MotionGraphicsIcon, SocialMediaIcon } from './icons/IconComponents';
+import { SparklesIcon, VideoCameraIcon, LayersIcon, FacebookIcon } from './icons/IconComponents';
 import { AnimatedText } from './AnimatedText';
 
 
 const skillsData: Skill[] = [
-  { name: '2D/3D Animation', icon: <AnimationIcon /> },
-  { name: 'Video Editing', icon: <VideoEditingIcon /> },
-  { name: 'Motion Graphics', icon: <MotionGraphicsIcon /> },
-  { name: 'Social Media & YouTube', icon: <SocialMediaIcon /> },
+  { name: '2D/3D Animation', icon: <SparklesIcon /> },
+  { name: 'Video Editing', icon: <VideoCameraIcon /> },
+  { name: 'Motion Graphics', icon: <LayersIcon /> },
+  { name: 'Social Media & YouTube', icon: <FacebookIcon /> },
 ];
 
 const tools = ['After Effects', 'Premiere Pro', 'Blender', 'AI Tools'];

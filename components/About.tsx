@@ -154,10 +154,10 @@ const About: React.FC = () => {
           <motion.div variants={textVariants} className="lg:col-span-3">
             <div className="space-y-6">
               <p className="text-lg text-text-secondary dark:text-[#94A3B8] leading-relaxed">
-                I’m a passionate 2D/3D Animator & Video Editor with over 8 years of professional experience.
+                Hi, I’m Betelhem, a video editor and creative content specialist focused on engaging visual storytelling.
               </p>
               <p className="text-lg text-text-secondary dark:text-[#94A3B8] leading-relaxed">
-                Experienced in faceless YouTube video editing, AI-generated visuals, cinematic B-roll, motion graphics, and short-form content, transforming scripts and raw assets into engaging videos designed to capture attention, retain viewers, and grow your channel.
+                I work with video editing tools including Adobe Premiere Pro, CapCut, and Photoshop. My goal is to help creators and businesses turn their ideas into clear, engaging visual content through thoughtful editing and animation-focused storytelling.
               </p>
               <motion.div 
                   className="flex items-center gap-3 text-text-primary dark:text-[#F1F5F9] mt-6"

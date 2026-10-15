@@ -5,15 +5,15 @@ import { PlusIcon } from './icons/IconComponents';
 const faqData = [
   {
     question: "What's your revision policy?",
-    answer: "I offer up to two rounds of major revisions and unlimited minor tweaks. My goal is to ensure you're 100% happy with the final product. We'll establish clear milestones for feedback to keep the project on track."
+    answer: "Revision rounds are agreed before the project starts. We’ll set clear feedback milestones and refine the animation or edit against the agreed brief."
   },
   {
     question: "What are your typical delivery times?",
-    answer: "Delivery time depends on the project's complexity. A short social media animation might take 3-5 days, while a 60-second explainer video could take 2-3 weeks. I'll provide a detailed timeline estimate with your formal quote."
+    answer: "Delivery time depends on duration, animation style, assets, and complexity. I’ll confirm a realistic timeline after reviewing your brief."
   },
   {
     question: "How do you handle pricing?",
-    answer: "I offer both hourly rates (~$20/hr) and fixed-price project quotes. For larger projects, a fixed price is often best. Contact me with your project details for a customized, formal quote tailored to your specific needs."
+    answer: "Pricing depends on the scope, duration, assets, and complexity. Share your project details for a quote tailored to the work required."
   },
   {
     question: "In what format will I receive the final files?",

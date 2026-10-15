@@ -6,8 +6,8 @@ const workflowHighlights = [
     tool: 'Adobe Premiere Pro',
     badge: 'Pr',
     badgeColor: 'text-[#EA77FF] bg-[#EA77FF]/15 border-[#EA77FF]/30',
-    title: 'Timeline Editorial & Assembly',
-    description: 'A-roll narrative trimming, multi-track pacing, dynamic cuts, high-retention audio sequencing, and broadcast-quality color balance.',
+    title: 'Cartoon Video Editing & Assembly',
+    description: 'Careful scene timing, dialogue and music balance, pacing, clean cuts, and final video assembly.',
     features: [
       'Multi-track timeline cutting & pacing',
       'Audio leveling & background sound design',
@@ -19,12 +19,12 @@ const workflowHighlights = [
     tool: 'Adobe After Effects',
     badge: 'Ae',
     badgeColor: 'text-[#9999FF] bg-[#9999FF]/15 border-[#9999FF]/30',
-    title: 'Motion Design & Visual FX',
-    description: 'Kinetic typography, lower thirds, infographic charts, document callout animations, and custom 2D visual elements linked dynamically to the edit.',
+    title: 'Motion Graphics & Animated Titles',
+    description: 'Animated titles, kinetic typography, graphic callouts, transitions, and 2D visual accents that support the story.',
     features: [
       'Kinetic titles & animated typography',
       'Infographics & animated data displays',
-      'Archival document zoom & parchment motion',
+      'Story-focused animated visual accents',
       'Custom transitions & visual accents',
     ],
   },
@@ -47,7 +47,7 @@ const GearAndSetup: React.FC = () => {
             Software &amp; Post-Production Environment
           </h2>
           <p className="mt-3 text-base text-text-secondary dark:text-slate-400 leading-relaxed font-normal">
-            Specialized post-production suite centered around industry-standard Adobe Creative Cloud applications.
+            A practical editing and motion workflow for cartoon videos, animated content, and clear visual storytelling.
           </p>
         </div>
 

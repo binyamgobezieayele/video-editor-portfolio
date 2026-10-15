@@ -7,9 +7,9 @@ import { AnimatedText } from './AnimatedText';
 const portfolioData: Project[] = [
   {
     id: 1,
-    title: 'Faceless YouTube & Long-Form Content',
-    description: 'Showcases of long-form and faceless YouTube video editing focusing on visual storytelling, scene flow, and engaging content.',
-    category: 'Faceless YouTube & Long-Form Content',
+    title: 'Video Editing & Visual Storytelling',
+    description: 'Existing long-form video editing examples focused on visual storytelling, scene flow, and engaging content.',
+    category: 'Video Editing & Visual Storytelling',
     thumbnailUrl: 'https://img.youtube.com/vi/u4el3UEHEqU/hqdefault.jpg',
     tools: ['Premiere Pro', 'CapCut', 'Photoshop'],
     playlist: [
@@ -74,9 +74,9 @@ const portfolioData: Project[] = [
   },
   {
     id: 2,
-    title: 'YouTube Shorts & Social Media',
-    description: 'A vertical video editing showcase for short-form content, with an emphasis on concise storytelling and social media presentation.',
-    category: 'YouTube Shorts & Social Media',
+    title: 'Short-Form Video & Social Content',
+    description: 'A short-form editing example focused on concise storytelling and social-first presentation.',
+    category: 'Short-Form Video & Social Content',
     thumbnailUrl: 'https://img.youtube.com/vi/VOLDS4sgWjE/hqdefault.jpg',
     tools: ['Premiere Pro', 'CapCut', 'Photoshop'],
     playlist: [
@@ -185,13 +185,13 @@ const Portfolio: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center mb-12">
             <AnimatedText 
-                text="My Portfolio" 
+                text="Selected Work" 
                 className="text-4xl font-bold text-center text-text-primary dark:text-white" 
             />
         </div>
         
         <p className="text-center text-text-secondary dark:text-[#94A3B8] mb-12 max-w-2xl mx-auto">
-          Explore my work by category. Click on any card to view the video playlist.
+          Explore selected video work. Click a card to view its existing video playlist. Animation samples can be added here when verified.
         </p>
 
         <motion.div 

@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
             className="text-2xl md:text-4xl font-semibold mt-4"
           >
             <span className="bg-gradient-to-r from-accent-start via-white to-accent-end bg-[length:200%_auto] bg-clip-text text-transparent animate-shimmer">
-              Video Editor & Faceless Content Specialist
+              2D Animation & Cartoon Video Editor
             </span>
           </h2>
         </motion.div>
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           transition={{ delay: 1.0, duration: 0.8 }}
           className="mt-3 text-lg md:text-xl font-medium text-accent-start tracking-wide"
         >
-          Your Vision. My Edit. More Engaging Content.
+          Bringing Stories to Life Through Animation.
         </motion.p>
 
         <motion.p 
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="mt-5 max-w-2xl mx-auto text-base md:text-lg text-slate-300 dark:text-[#94A3B8] leading-relaxed"
         >
-          I help YouTube creators and brands create engaging faceless videos, cinematic edits, and attention-grabbing Shorts, Reels, and TikToks that keep viewers watching.
+          I create engaging cartoon videos, animation-focused edits, and visually compelling stories that help creators and businesses communicate their ideas.
         </motion.p>
         <div 
           className="mt-8 flex flex-wrap gap-4 justify-center animate-fade-in-up"
@@ -63,11 +63,11 @@ const Hero: React.FC = () => {
           <a href="#portfolio" className="relative inline-flex items-center justify-center p-0.5 rounded-full font-bold text-white group" data-cursor-variant="link">
              <span className="absolute inset-0 bg-gradient-to-r from-accent-start to-accent-end rounded-full"></span>
              <span className="relative px-8 py-3 bg-black/50 backdrop-blur-sm rounded-full transition-all ease-in duration-200 group-hover:bg-opacity-0">
-                View My Work
+                View My Animation Portfolio
              </span>
           </a>
           <a href="#contact" className="bg-transparent text-white font-bold py-3 px-8 rounded-full border-2 border-white/50 hover:border-white transition-all duration-300 transform hover:scale-105" data-cursor-variant="link">
-            Get in Touch
+            Discuss Your Project
           </a>
         </div>
       </div>

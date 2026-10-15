@@ -46,8 +46,8 @@ const Contact: React.FC = () => {
       variants={sectionVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h2 variants={itemVariants} className="text-4xl font-bold text-text-primary dark:text-white">Let’s create something amazing</motion.h2>
-        <motion.p variants={itemVariants} className="mt-4 text-lg bg-gradient-to-r from-accent-start to-accent-end bg-clip-text text-transparent font-semibold">Message me for a free sample!</motion.p>
+        <motion.h2 variants={itemVariants} className="text-4xl font-bold text-text-primary dark:text-white">Let’s bring your story to life</motion.h2>
+        <motion.p variants={itemVariants} className="mt-4 text-lg bg-gradient-to-r from-accent-start to-accent-end bg-clip-text text-transparent font-semibold">Tell me about your cartoon animation or video editing project.</motion.p>
         
         <motion.div variants={itemVariants} className="mt-12 max-w-2xl mx-auto bg-secondary dark:bg-[#11111F] p-8 rounded-lg shadow-2xl border border-primary dark:border-[#0A0A14] hover:border-accent-start/30 transition-colors">
           {submitted ? (
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                 <textarea 
                   name="message" 
                   rows={5} 
-                  placeholder="Your Message" 
+                  placeholder="Tell me about your project" 
                   required 
                   value={formData.message}
                   onChange={handleChange}

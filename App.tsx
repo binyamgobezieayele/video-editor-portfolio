@@ -1,91 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Portfolio from './components/Portfolio';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import ScrollToTopButton from './components/ScrollToTopButton';
-import CustomCursor from './components/CustomCursor';
-import StickyNav from './components/StickyNav';
-import SplashScreen from './components/SplashScreen';
-import GearAndSetup from './components/GearAndSetup';
-import FAQ from './components/FAQ';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
+const services = [
+ {n:'01',title:'2D Cartoon Animation',desc:'Illustrated scenes, expressive characters, and a clear visual story for creators, educators, and brands.'},
+ {n:'02',title:'Cartoon Video Editing',desc:'Polished pacing, scene flow, sound, transitions, and timing for existing cartoon footage.'},
+ {n:'03',title:'Animated Storytelling',desc:'Shape scripts and ideas into watchable stories with thoughtful visual beats and scene rhythm.'},
+ {n:'04',title:'Explainer Videos',desc:'Make a product, service, or process easier to understand through concise visual communication.'},
+ {n:'05',title:'Motion Graphics & Titles',desc:'Animated titles, labels, graphic elements, and transitions that support the message.'},
+ {n:'06',title:'Short-Form Animation',desc:'Vertical, platform-ready edits for TikTok, Instagram Reels, and YouTube Shorts.'},
+ {n:'07',title:'YouTube Animation Content',desc:'Edit episodic animated content with consistent pacing, dialogue, music, and visual continuity.'},
+ {n:'08',title:'AI-Assisted Production',desc:'Use AI-assisted tools where appropriate to support ideation and production, with human review.'}
+];
+const categories = ['All','Cartoon Animation','2D Animation','Character Animation','Explainer Videos','Motion Graphics','Short-Form Animation'];
+const projects = [
+ {id:1,title:'Cartoon Story Showcase',category:'Cartoon Animation',style:'Character-led storytelling',desc:'Replace this concept slot with a genuine cartoon story sample, project notes, and a working video link.'},
+ {id:2,title:'2D Scene Animation',category:'2D Animation',style:'Illustrated scene and movement',desc:'Add a real 2D scene and explain the story beat, visual style, and your contribution.'},
+ {id:3,title:'Character Performance',category:'Character Animation',style:'Expressive character moments',desc:'Add a genuine clip demonstrating character expressions and movement you created or edited.'},
+ {id:4,title:'Animated Explainer',category:'Explainer Videos',style:'Clear visual communication',desc:'Replace with a real explainer sample and explain the audience, topic, and your role.'},
+ {id:5,title:'Animated Titles & Graphics',category:'Motion Graphics',style:'Typography and graphic rhythm',desc:'Add a real example showing animated titles, transitions, or graphic elements.'},
+ {id:6,title:'Vertical Animation Edit',category:'Short-Form Animation',style:'9:16 social-first pacing',desc:'Add a genuine vertical edit and its published project link.'}
+];
+const steps = [
+ {n:'01',title:'Share the idea',text:'Tell me about your audience, story, preferred style, and where the video will be published.'},
+ {n:'02',title:'Align on the plan',text:'We confirm scope, references, deliverables, format, timeline, and feedback milestones.'},
+ {n:'03',title:'Create and refine',text:'I work through the agreed direction and use your feedback to refine the result.'},
+ {n:'04',title:'Deliver ready to publish',text:'Receive the final export in the format and aspect ratio agreed for your project.'}
+];
+const faqs = [
+ {q:'What do you need to get started?',a:'A short brief, target audience, visual references, video length, platform, and any script, voiceover, character assets, or footage you already have.'},
+ {q:'Can you edit existing cartoon footage?',a:'Yes, we can discuss pacing, scene arrangement, titles, sound, transitions, and platform-specific versions. Scope depends on the source files and brief.'},
+ {q:'Do you create every type of animation?',a:'My focus is 2D/cartoon-style content, animation-focused editing, storytelling, and motion graphics. Specialist work is included only when suitable and agreed in advance.'},
+ {q:'How are timelines and pricing decided?',a:'They depend on duration, style, assets, complexity, and revision needs. We discuss a realistic scope and schedule before work begins.'},
+ {q:'What files will I receive?',a:'The final video is delivered in the format and aspect ratio agreed for the project. Source files and extra versions can be discussed in the scope.'}
+];
+const tools = [
+ {abbr:'Pr',name:'Adobe Premiere Pro',desc:'Editing, pacing, sound, transitions, and final assembly.'},
+ {abbr:'Cc',name:'CapCut',desc:'Short-form edits, captions, and platform-ready finishing.'},
+ {abbr:'Ps',name:'Adobe Photoshop',desc:'Image preparation and visual assets for content workflows.'},
+ {abbr:'✳',name:'AI-assisted tools',desc:'Used when appropriate to support the agreed production workflow.'}
+];
 const App: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.overflow = 'auto';
-    }, 2500);
-
-    return () => {
-      clearTimeout(timer);
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
-
-  // Add smooth scroll for all anchor links
-  useEffect(() => {
-    const handleAnchorClick = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      const anchor = target.closest('a[href^="#"]');
-      
-      if (!anchor) return;
-
-      const href = anchor.getAttribute('href');
-      if (!href || href === '#') return;
-      
-      const targetElement = document.querySelector(href);
-      if (targetElement) {
-        event.preventDefault();
-        
-        const header = document.querySelector('header');
-        // Add 1rem (16px) of padding to the header's height for a nice visual offset
-        const headerOffset = header ? header.offsetHeight + 16 : 80; 
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
-
-
-  return (
-    <div className="bg-primary dark:bg-[#0A0A14] min-h-screen relative isolate">
-      <AnimatePresence>
-        {isLoading && <SplashScreen />}
-      </AnimatePresence>
-      <CustomCursor />
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Portfolio />
-        <GearAndSetup />
-        <Testimonials />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
-      <ScrollToTopButton />
-      <StickyNav />
+ const [menu,setMenu] = useState(false);
+ const [filter,setFilter] = useState('All');
+ const [faqOpen,setFaqOpen] = useState(0);
+ const [name,setName] = useState('');
+ const [email,setEmail] = useState('');
+ const [brief,setBrief] = useState('');
+ const visibleProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+ const sendInquiry = (e: React.FormEvent) => {
+  e.preventDefault();
+  const subject = encodeURIComponent('Animation project inquiry — ' + name);
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nProject details:\n' + brief);
+  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+ };
+ const links = [['#about','About'],['#services','Services'],['#portfolio','Portfolio'],['#process','Process'],['#contact','Contact']];
+ return <div className="min-h-screen bg-white font-sans text-[#17121f]">
+  <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#17121f]/95 text-white backdrop-blur-xl">
+   <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+    <a href="#home" className="flex items-center gap-3" aria-label="Betelhem G. home"><span className="flex h-9 w-9 items-center justify-center rounded-xl bg-fuchsia-300 font-black text-[#17121f]">B.</span><span><b className="block leading-tight">Betelhem G.</b><small className="hidden text-[10px] font-semibold uppercase tracking-wider text-white/55 sm:block">Animation & Video Editing</small></span></a>
+    <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">{links.map(([href,label])=><a key={href} href={href} className="rounded-full px-4 py-2 text-sm font-medium text-white/75 transition hover:bg-white/10 hover:text-white">{label}</a>)}<a href="#contact" className="ml-2 rounded-full bg-fuchsia-300 px-5 py-2.5 text-sm font-bold text-[#17121f] hover:bg-fuchsia-200">Discuss a project ↗</a></nav>
+    <button type="button" onClick={()=>setMenu(!menu)} aria-label={menu?'Close navigation menu':'Open navigation menu'} aria-expanded={menu} aria-controls="mobile-menu" className="rounded-lg border border-white/15 p-2 md:hidden">{menu?'✕':'☰'}</button>
+   </div>
+   {menu&&<nav id="mobile-menu" className="border-t border-white/10 bg-[#17121f] px-5 py-3 md:hidden" aria-label="Mobile navigation">{links.map(([href,label])=><a key={href} href={href} onClick={()=>setMenu(false)} className="block rounded-lg px-3 py-3 text-sm text-white/80 hover:bg-white/10">{label}</a>)}<a href="#contact" onClick={()=>setMenu(false)} className="mt-2 block rounded-full bg-fuchsia-300 px-4 py-3 text-center text-sm font-bold text-[#17121f]">Discuss a project ↗</a></nav>}
+  </header>
+  <main>
+   <section id="home" className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#17121f] pb-20 pt-28 text-white">
+    <div aria-hidden="true" className="absolute inset-0 overflow-hidden"><div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-fuchsia-600/20 blur-3xl"/><div className="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl"/><div className="absolute inset-0 opacity-[.07]" style={{backgroundImage:'linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)',backgroundSize:'44px 44px'}}/></div>
+    <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_.95fr]">
+     <div><motion.p initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} transition={{duration:.5}} className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[.18em] text-fuchsia-200"><span className="h-2 w-2 rounded-full bg-emerald-400"/>2D Animation · Cartoon Video Editing</motion.p>
+      <motion.h1 initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.65}} className="max-w-3xl text-5xl font-extrabold leading-[1.04] tracking-tight sm:text-6xl lg:text-7xl">Bringing stories to life <span className="bg-gradient-to-r from-fuchsia-300 via-violet-300 to-amber-200 bg-clip-text text-transparent">through animation.</span></motion.h1>
+      <motion.p initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{duration:.6,delay:.15}} className="mt-7 max-w-xl text-lg leading-8 text-white/70">I create engaging cartoon videos, animated content, and visually compelling stories that help creators and businesses communicate their ideas.</motion.p>
+      <div className="mt-9 flex flex-wrap gap-4"><a href="#portfolio" className="rounded-full bg-fuchsia-300 px-6 py-3.5 font-bold text-[#17121f] transition hover:-translate-y-0.5 hover:bg-fuchsia-200">View My Animation Portfolio ↗</a><a href="#contact" className="rounded-full border border-white/25 px-6 py-3.5 font-semibold text-white transition hover:border-white/60 hover:bg-white/5">Discuss Your Project</a></div>
+      <p className="mt-8 text-sm text-white/45">Concept-led storytelling · Thoughtful editing · Social-ready delivery</p>
+     </div>
+     <motion.div initial={{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{duration:.7,delay:.12}} className="relative mx-auto w-full max-w-xl"><div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-fuchsia-500/20 to-violet-500/20 blur-2xl"/><div className="relative overflow-hidden rounded-[1.7rem] border border-white/15 bg-[#251d31] p-4 shadow-2xl"><div className="flex items-center justify-between px-2 pb-4"><span className="text-xs font-semibold uppercase tracking-[.18em] text-white/55">The animation desk</span><span className="flex gap-1.5"><i className="h-2 w-2 rounded-full bg-fuchsia-300"/><i className="h-2 w-2 rounded-full bg-amber-200"/><i className="h-2 w-2 rounded-full bg-emerald-300"/></span></div><div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#f8b9d4] via-[#d5b9ff] to-[#a9d7f8]"><div className="absolute left-5 top-5 h-16 w-16 rounded-full border-[10px] border-white/40"/><div className="absolute bottom-0 left-0 h-1/3 w-full rounded-t-[50%] bg-[#7b4d9b]/20"/><div className="absolute bottom-5 left-1/2 h-20 w-44 -translate-x-1/2 rounded-t-[5rem] bg-[#f4a45d]"/><div className="absolute bottom-[4.5rem] left-1/2 h-32 w-32 -translate-x-1/2 rounded-[48%] bg-[#4b315f] shadow-xl"><div className="absolute left-5 top-10 h-4 w-4 rounded-full bg-white"/><div className="absolute right-5 top-10 h-4 w-4 rounded-full bg-white"/><div className="absolute left-1/2 top-[4.6rem] h-5 w-10 -translate-x-1/2 rounded-b-full border-b-4 border-[#f6a4ad]"/><div className="absolute -top-4 left-2 h-8 w-10 -rotate-[-20deg] rounded-full bg-[#4b315f]"/><div className="absolute -top-5 right-2 h-9 w-10 rotate-[25deg] rounded-full bg-[#4b315f]"/></div><span className="absolute right-5 top-6 rotate-6 rounded-xl bg-white px-3 py-2 text-xs font-black text-[#4b315f] shadow-lg">STORY → MOTION</span><span className="absolute bottom-4 left-4 rounded-full bg-[#17121f]/80 px-3 py-1.5 text-xs font-semibold text-white">Character • Colour • Rhythm</span></div><div className="grid grid-cols-3 gap-2 pt-3">{['CHARACTER','STORYBOARD','FINAL CUT'].map((x,i)=><div key={x} className="rounded-xl border border-white/10 bg-white/[.04] p-3"><div className={['mb-2 h-1.5 rounded-full bg-fuchsia-300','mb-2 h-1.5 rounded-full bg-violet-300','mb-2 h-1.5 rounded-full bg-amber-200'][i]}/><p className="text-[10px] font-bold tracking-widest text-white/60">{x}</p></div>)}</div></div></motion.div>
     </div>
-  );
+   </section>
+   <section id="about" className="bg-white py-24"><div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[.7fr_1.3fr]"><div className="relative mx-auto w-full max-w-sm"><div className="absolute -inset-3 rotate-3 rounded-[2rem] bg-gradient-to-br from-fuchsia-300 to-violet-400 opacity-60"/><div className="relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[1.7rem] bg-[#21182c] p-7 text-white"><span className="text-xs font-bold uppercase tracking-[.25em] text-fuchsia-200">Creative practice</span><div className="relative mx-auto flex h-52 w-52 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 via-fuchsia-300 to-violet-400"><div className="relative h-36 w-32 rounded-[45%_45%_40%_40%] bg-[#5b376c]"><span className="absolute left-5 top-12 h-4 w-4 rounded-full bg-white"/><span className="absolute right-5 top-12 h-4 w-4 rounded-full bg-white"/><span className="absolute left-1/2 top-20 h-4 w-8 -translate-x-1/2 rounded-b-full border-b-4 border-amber-200"/><span className="absolute -left-2 top-1 h-10 w-12 -rotate-12 rounded-full bg-[#5b376c]"/><span className="absolute -right-2 top-0 h-12 w-12 rotate-12 rounded-full bg-[#5b376c]"/></div><span className="absolute right-2 top-5 text-3xl">✦</span><span className="absolute bottom-4 left-4 text-2xl">✳</span></div><div><p className="text-2xl font-extrabold">Betelhem G.</p><p className="mt-1 text-sm text-white/60">2D Animation & Cartoon Video Editor</p></div></div></div><div><p className="mb-3 text-xs font-bold uppercase tracking-[.22em] text-fuchsia-600">A little about me</p><h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Good stories deserve <span className="text-fuchsia-500">great visuals.</span></h2><div className="mt-7 space-y-4 text-lg leading-8 text-slate-600"><p>Hi, I’m Betelhem, a video editor and creative content specialist focused on engaging visual storytelling.</p><p>I work with video editing tools including Adobe Premiere Pro, CapCut, and Photoshop. My goal is to help creators and businesses turn their ideas into clear, engaging visual content through thoughtful editing and animation-focused storytelling.</p><p>I value clear communication, purposeful pacing, and a collaborative process—from the first idea to the final export.</p></div><div className="mt-8 flex flex-wrap gap-2">{['Story-first thinking','Careful editing','Collaborative feedback','Social-ready formats'].map(t=><span key={t} className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700">{t}</span>)}</div></div></div></section>
+   <section id="services" className="bg-[#f6f4f8] py-24"><div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="mb-12 max-w-2xl"><p className="mb-3 text-xs font-bold uppercase tracking-[.22em] text-fuchsia-700">What I can help with</p><h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Animation services, made clear.</h2><p className="mt-4 text-lg leading-7 text-slate-600">Choose the support that fits your idea. We’ll agree on style, scope, and deliverables before production begins.</p></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{services.map((s,i)=><motion.article key={s.n} initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:(i%4)*.06}} className="group flex min-h-64 flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-300 hover:shadow-xl"><span className="mb-8 flex h-10 w-10 items-center justify-center rounded-xl bg-fuchsia-100 text-sm font-extrabold text-fuchsia-700">{s.n}</span><h3 className="text-xl font-bold">{s.title}</h3><p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{s.desc}</p><a href="#contact" className="mt-5 border-t border-slate-100 pt-4 text-xs font-bold text-fuchsia-700">Discuss this service ↗</a></motion.article>)}</div><p className="mt-7 text-sm text-slate-500">Project scope and animation complexity are discussed upfront so the deliverable matches the brief.</p></div></section>
+   <section id="portfolio" className="bg-white py-24"><div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="mb-3 text-xs font-bold uppercase tracking-[.22em] text-fuchsia-700">Selected work</p><h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Animation portfolio</h2><p className="mt-4 max-w-2xl text-lg leading-7 text-slate-600">The gallery is structured for animation samples. Items marked “Portfolio sample needed” are placeholders—not completed client projects.</p></div><a href="#contact" className="self-start rounded-full bg-[#20182b] px-5 py-3 text-sm font-bold text-white hover:bg-fuchsia-700 md:self-auto">Have a project? Let’s talk ↗</a></div><div className="mb-8 flex gap-2 overflow-x-auto pb-2" aria-label="Filter portfolio projects">{categories.map(c=><button key={c} onClick={()=>setFilter(c)} aria-pressed={filter===c} className={filter===c?'shrink-0 rounded-full border border-fuchsia-500 bg-fuchsia-500 px-4 py-2 text-sm font-semibold text-white':'shrink-0 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:border-fuchsia-300'}>{c}</button>)}</div><div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{visibleProjects.map((p,i)=><article key={p.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-[#f6f4f8]"><div className={['relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-fuchsia-200 via-violet-200 to-amber-100','relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-violet-200 via-sky-100 to-fuchsia-200','relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-amber-100 via-rose-200 to-violet-200'][i%3]}><div className="absolute left-6 top-6 h-12 w-12 rounded-full border-[8px] border-white/60"/><div className="absolute bottom-0 left-0 h-1/3 w-full rounded-t-[50%] bg-violet-500/15"/><div className="relative flex h-24 w-24 items-center justify-center rounded-[40%] bg-[#443054] shadow-xl"><span className="text-4xl text-amber-200">✦</span><span className="absolute -right-3 -top-2 h-8 w-8 rounded-full bg-fuchsia-400"/></div><span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white">Illustrative placeholder</span></div><div className="p-6"><div className="flex flex-wrap items-start justify-between gap-3"><span className="text-xs font-bold uppercase tracking-wider text-fuchsia-700">{p.category}</span><span className="rounded-full bg-amber-100 px-2.5 py-1 text-[10px] font-bold text-amber-800">Portfolio sample needed</span></div><h3 className="mt-3 text-xl font-bold">{p.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{p.desc}</p><div className="mt-4 border-t border-slate-200 pt-4 text-xs text-slate-500"><p><b>Approach:</b> {p.style}</p><p className="mt-1"><b>Tools:</b> Add verified tools</p></div><p className="mt-4 text-xs text-slate-500">Add a real video preview or working project link before publishing this as a sample.</p></div></article>)}</div><p className="mt-8 text-sm text-slate-500">Older unrelated work can be retained separately; no project is represented here as completed client work.</p></div></section>
+   <section id="process" className="bg-[#f6f4f8] py-24"><div className="mx-auto max-w-7xl px-5 sm:px-8"><p className="mb-3 text-xs font-bold uppercase tracking-[.22em] text-fuchsia-700">A simple collaboration</p><h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">From first idea to final cut.</h2><p className="mt-4 max-w-2xl text-lg text-slate-600">A clear process helps keep creative projects focused and collaborative.</p><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{steps.map(s=><article key={s.n} className="rounded-2xl border border-slate-200 bg-white p-6"><span className="text-sm font-extrabold text-fuchsia-700">{s.n}</span><h3 className="mt-8 text-xl font-bold">{s.title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{s.text}</p></article>)}</div></div></section>
+   <section id="tools" className="bg-white py-20"><div className="mx-auto max-w-7xl px-5 sm:px-8"><p className="mb-3 text-xs font-bold uppercase tracking-[.22em] text-fuchsia-700">Production toolkit</p><h2 className="text-3xl font-extrabold sm:text-4xl">Tools that support the story.</h2><p className="mt-4 max-w-2xl text-slate-600">The workflow is selected around the brief and deliverable. Exact tools are confirmed for each project.</p><div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{tools.map(t=><div key={t.name} className="rounded-2xl border border-slate-200 p-6"><span className="flex h-12 w-12 items-center justify-center rounded-xl bg-fuchsia-100 font-extrabold text-fuchsia-700">{t.abbr}</span><h3 className="mt-5 font-bold">{t.name}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{t.desc}</p></div>)}</div></div></section>
+   <section id="faq" className="bg-[#f6f4f8] py-20"><div className="mx-auto max-w-4xl px-5 sm:px-8"><p className="mb-3 text-center text-xs font-bold uppercase tracking-[.22em] text-fuchsia-700">Good to know</p><h2 className="mb-10 text-center text-4xl font-extrabold">Frequently asked questions</h2><div className="rounded-2xl border border-slate-200 bg-white px-6 sm:px-8">{faqs.map((item,i)=><div key={item.q} className="border-b border-slate-100 last:border-0"><button onClick={()=>setFaqOpen(faqOpen===i?-1:i)} aria-expanded={faqOpen===i} className="flex w-full items-center justify-between gap-5 py-5 text-left font-semibold"><span>{item.q}</span><span className="text-xl text-fuchsia-700">{faqOpen===i?'−':'+'}</span></button>{faqOpen===i&&<p className="max-w-3xl pb-5 pr-8 text-sm leading-7 text-slate-600">{item.a}</p>}</div>)}</div></div></section>
+   <section id="contact" className="bg-[#17121f] py-24 text-white"><div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.85fr_1.15fr]"><div><p className="mb-3 text-xs font-bold uppercase tracking-[.22em] text-fuchsia-300">Let’s work together</p><h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Have a story to tell?</h2><p className="mt-5 max-w-lg text-lg leading-8 text-white/65">Share your idea, the type of animation or edit you need, and where you plan to use it. I’ll use those details to start the conversation.</p><div className="mt-8 space-y-3 text-sm text-white/65"><p>✦ Cartoon and 2D animation-focused projects</p><p>✦ Animated video editing and short-form content</p><p>✦ Clear scope and deliverables before production</p></div></div><div className="rounded-3xl border border-white/10 bg-white/[.04] p-6 sm:p-8"><h3 className="text-2xl font-bold">Tell me about your project</h3><p className="mt-2 text-sm text-white/55">Submitting opens your email app with a draft. No message is sent automatically.</p><form onSubmit={sendInquiry} className="mt-6 space-y-4"><div><label htmlFor="contact-name" className="mb-2 block text-sm font-medium text-white/80">Your name</label><input id="contact-name" value={name} onChange={e=>setName(e.target.value)} required className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-fuchsia-300" placeholder="Name"/></div><div><label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-white/80">Your email</label><input id="contact-email" type="email" value={email} onChange={e=>setEmail(e.target.value)} required className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-fuchsia-300" placeholder="you@example.com"/></div><div><label htmlFor="contact-brief" className="mb-2 block text-sm font-medium text-white/80">Project details</label><textarea id="contact-brief" value={brief} onChange={e=>setBrief(e.target.value)} required rows={5} className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-fuchsia-300" placeholder="What would you like to create?"/></div><button type="submit" className="w-full rounded-full bg-fuchsia-300 px-6 py-3.5 font-bold text-[#17121f] transition hover:bg-fuchsia-200">Prepare email inquiry ↗</button></form></div></div></section>
+  </main>
+  <footer className="border-t border-white/10 bg-[#17121f] px-5 py-7 text-white"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left"><div><p className="font-bold">Betelhem G.</p><p className="mt-1 text-xs text-white/50">2D Animation & Cartoon Video Editor</p></div><p className="text-xs text-white/50">© {new Date().getFullYear()} Betelhem G. All rights reserved.</p><a href="#home" className="text-sm font-semibold text-fuchsia-200 hover:text-white">Back to top ↑</a></div></footer>
+ </div>;
 };
-
 export default App;

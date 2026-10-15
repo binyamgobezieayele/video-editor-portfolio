@@ -6,13 +6,13 @@ import { AnimatedText } from './AnimatedText';
 
 
 const skillsData: Skill[] = [
-  { name: '2D/3D Animation', icon: <SparklesIcon /> },
-  { name: 'Video Editing', icon: <VideoCameraIcon /> },
+  { name: '2D Cartoon Animation', icon: <SparklesIcon /> },
+  { name: 'Cartoon Video Editing', icon: <VideoCameraIcon /> },
   { name: 'Motion Graphics', icon: <LayersIcon /> },
-  { name: 'Social Media & YouTube', icon: <FacebookIcon /> },
+  { name: 'Animated Social Content', icon: <FacebookIcon /> },
 ];
 
-const tools = ['After Effects', 'Premiere Pro', 'Blender', 'AI Tools'];
+const tools = ['Adobe Premiere Pro', 'CapCut', 'Photoshop', 'AI-Assisted Tools'];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -59,7 +59,7 @@ const Skills: React.FC = () => {
                 className="text-4xl font-bold text-center text-text-primary dark:text-white" 
             />
         </div>
-        <motion.p variants={itemVariants} className="text-center text-text-secondary dark:text-[#94A3B8] mb-12 max-w-2xl mx-auto">A versatile skill set to bring any creative vision to life.</motion.p>
+        <motion.p variants={itemVariants} className="text-center text-text-secondary dark:text-[#94A3B8] mb-12 max-w-2xl mx-auto">Focused on cartoon content, animation-led storytelling, and polished video editing.</motion.p>
         <motion.div 
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto"
             variants={containerVariants}
